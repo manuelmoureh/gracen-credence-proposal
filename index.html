@@ -541,6 +541,17 @@ svg { display: block; max-width: 100%; }
 .ptable.two th:last-child,.ptable.two td.n{text-align:right;}
 .ptable.two td.ph{font-size:1.05rem;}
 .ptable.two td.n{font-size:1.05rem;}
+.pricegrid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(1rem,2.4vw,2rem);align-items:center;margin-top:1.4rem;}
+@media(max-width:880px){.pricegrid{grid-template-columns:1fr;}}
+.ptable.two{min-width:0;}
+.ptable.two th{padding:.2rem .5rem .7rem;font-size:.85rem;}
+.ptable.two th:first-child{padding-left:0;}
+.ptable.two td{padding:clamp(.4rem,1.1vh,.62rem) .5rem;}
+.ptable.two td.pnum{width:2.6rem;padding-left:0;padding-right:.2rem;}
+.ptable.two td.ph{font-size:1.02rem;}
+.ptable.two td.n{font-size:1.1rem;}
+.pnum span{display:inline-flex;align-items:center;justify-content:center;width:1.7rem;height:1.7rem;border-radius:50%;background:var(--purple-bg);border:1px solid rgba(160,4,223,.45);color:var(--purple-light);font-weight:800;font-size:.8rem;}
+.pnote h3{font-size:1.05rem;margin:0 0 .5rem;}
 .road{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem;}
 .road .card{padding:.75rem .85rem;}
 .road .wk{font-size:.85rem;font-weight:700;letter-spacing:0;color:var(--muted);margin-top:.5rem;}
@@ -878,26 +889,33 @@ svg { display: block; max-width: 100%; }
         Pick the phases you want and pay only for those. One fixed fee per phase covers both businesses, with no monthly charges from us.
       </p>
 
-      <div class="card ptable-wrap reveal d4" style="margin-top: 1.2rem; padding: .6rem 1.4rem; max-width: 760px;">
-        <table class="ptable two" style="min-width: 0;">
-          <thead>
-            <tr><th>Phase</th><th>Fee for both businesses</th></tr>
-          </thead>
-          <tbody>
-            <tr><td class="ph">0 · AI audit and design</td><td class="n">KES 12,000</td></tr>
-            <tr><td class="ph">1 · Content and research</td><td class="n">KES 40,000</td></tr>
-            <tr><td class="ph">2 · Marketing and lead generation</td><td class="n">KES 28,000</td></tr>
-            <tr><td class="ph">3 · Invitations and communications</td><td class="n">KES 16,000</td></tr>
-            <tr><td class="ph">4 · Onboarding</td><td class="n">KES 12,000</td></tr>
-            <tr><td class="ph">5 · Operations and billing</td><td class="n">KES 30,000</td></tr>
-            <tr><td class="ph">6 · Client care and retention</td><td class="n">KES 30,000</td></tr>
-            <tr><td class="ph">7 · Reporting</td><td class="n">KES 10,000</td></tr>
-          </tbody>
-        </table>
-      </div>
+      <div class="pricegrid">
+        <div class="card ptable-wrap reveal d4" style="padding: .9rem 1.5rem;">
+          <table class="ptable two">
+            <thead>
+              <tr><th colspan="2">Phase</th><th>Fee for both businesses</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="pnum"><span>0</span></td><td class="ph">AI audit and design</td><td class="n">KES 12,000</td></tr>
+              <tr><td class="pnum"><span>1</span></td><td class="ph">Content and research</td><td class="n">KES 40,000</td></tr>
+              <tr><td class="pnum"><span>2</span></td><td class="ph">Marketing and lead generation</td><td class="n">KES 28,000</td></tr>
+              <tr><td class="pnum"><span>3</span></td><td class="ph">Invitations and communications</td><td class="n">KES 16,000</td></tr>
+              <tr><td class="pnum"><span>4</span></td><td class="ph">Onboarding</td><td class="n">KES 12,000</td></tr>
+              <tr><td class="pnum"><span>5</span></td><td class="ph">Operations and billing</td><td class="n">KES 30,000</td></tr>
+              <tr><td class="pnum"><span>6</span></td><td class="ph">Client care and retention</td><td class="n">KES 30,000</td></tr>
+              <tr><td class="pnum"><span>7</span></td><td class="ph">Reporting</td><td class="n">KES 10,000</td></tr>
+            </tbody>
+          </table>
+        </div>
 
-      <p class="note reveal d5" style="margin-top: .9rem;"><b>Each fee</b> covers designing, building, testing and launching, plus 30 days of support after launch. Phase 1 includes the first month of content. After the 30 days, any change, addition or further content is quoted separately.</p>
-      <p class="note reveal d6" style="margin-top: .5rem;"><b>Billing:</b> Phase 0 is paid before we start. For later phases, half of the fee starts the work and half is due when the phase is complete. Tools such as WhatsApp messaging, AI usage and hosting are billed to you directly by their providers, and we confirm the amounts in Phase 0. All amounts are in Kenya shillings.</p>
+        <div class="card pnote reveal d5" style="padding: 1.3rem 1.5rem;">
+          <h3>What each fee covers</h3>
+          <ul class="checks" style="margin-top: .3rem; font-size: .95rem;"><li><span>Designing, building, testing and launching, plus 30 days of support after launch.</span></li><li><span>Phase 1 includes the first month of content.</span></li><li><span>After the 30 days, any change, addition or further content is quoted separately.</span></li></ul>
+          <div class="divider"></div>
+          <h3>How billing works</h3>
+          <ul class="checks" style="margin-top: .3rem; font-size: .95rem;"><li><span>Phase 0 is paid before we start. For later phases, half of the fee starts the work and half is due when the phase is complete.</span></li><li><span>WhatsApp messaging, AI usage and hosting are billed to you directly by their providers. We confirm the amounts in Phase 0.</span></li></ul>
+        </div>
+      </div>
 
     </div>
 
