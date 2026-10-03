@@ -498,7 +498,7 @@ svg { display: block; max-width: 100%; }
 /* ---- Gracen / Credence Engage proposal additions ---- */
 
 /* Scale text by width and height, so short laptop screens do not clip */
-:root{font-size:clamp(13px,2vh,16px);}
+:root{font-size:clamp(13px,min(2vh,1.4vw),16px);}
 :root{--muted:#6A677B;}
 @media(max-width:700px){:root{font-size:15px;}}
 
@@ -524,34 +524,35 @@ svg { display: block; max-width: 100%; }
 
 .dark .ledger .r{border-bottom-color:var(--card-border);}
 .dark .ledger .s,.dark .ledger .v small{color:var(--muted-light);}
+.prio .ledger .r{padding:.7rem 0;align-items:center;}
+.prio .ledger .k{font-size:1.1rem;flex:1;}
+.prio .ledger .s{font-size:.95rem;margin-top:.25rem;}
 .ptable-wrap{overflow-x:auto;}
-.ptable{width:100%;min-width:700px;border-collapse:collapse;font-size:.95rem;}
-.ptable th,.ptable td{padding:.5rem .7rem;text-align:left;border-bottom:1px solid var(--card-border);}
+.ptable{width:100%;min-width:700px;border-collapse:collapse;font-size:.93rem;}
+.ptable th,.ptable td{padding:.36rem .7rem;text-align:left;border-bottom:1px solid var(--card-border);}
 .ptable thead th{font-size:.85rem;font-weight:700;letter-spacing:0;color:var(--muted-light);border-bottom:1px solid var(--card-border);}
-.ptable thead tr.grp th{text-align:center;font-size:1rem;border-bottom:0;padding-bottom:.2rem;}
-.ptable thead tr.grp th.g{color:var(--purple-light);}
-.ptable thead tr.grp th.e{color:var(--gold);}
 .ptable thead th.g{color:var(--purple-light);}
 .ptable thead th.e{color:var(--gold);}
-.ptable td.ph{font-weight:700;font-size:1rem;}
-.ptable td.ph small{display:block;font-weight:500;font-size:.82rem;color:var(--muted-light);margin-top:.1rem;}
+.ptable td.ph{font-weight:700;font-size:.98rem;}
+.ptable td.ph small{display:block;font-weight:500;font-size:.8rem;color:var(--muted-light);margin-top:.05rem;}
 .ptable td.n{font-weight:900;font-variant-numeric:tabular-nums;white-space:nowrap;}
-.ptable td.n small{display:block;font-weight:500;font-size:.78rem;color:var(--muted-light);}
-.ptable td.zero{text-align:center;font-weight:700;color:var(--text);background:rgba(160,4,223,.10);}
-.ptable td.zero b{font-weight:900;}
 .ptable tr:last-child td{border-bottom:0;}
 .ptable .sep{border-left:1px solid var(--card-border);}
-.road{display:grid;grid-template-columns:repeat(6,1fr);gap:.6rem;}
-.road .card{padding:.85rem .9rem;}
-.road .wk{font-size:.85rem;font-weight:700;letter-spacing:0;color:var(--muted);margin-top:.55rem;}
-.road h3{font-size:1.05rem;line-height:1.2;margin-top:.3rem;}
-.road p{font-size:.92rem;line-height:1.45;color:var(--muted);margin-top:.4rem;}
-.roadbars{display:flex;flex-direction:column;gap:.5rem;margin-top:.9rem;}
-.roadbars .bar{border-radius:10px;padding:.65rem 1rem;font-weight:700;font-size:1rem;line-height:1.35;}
+.road{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem;}
+.road .card{padding:.75rem .85rem;}
+.road .wk{font-size:.85rem;font-weight:700;letter-spacing:0;color:var(--muted);margin-top:.5rem;}
+.road h3{font-size:1.05rem;line-height:1.2;margin-top:.25rem;}
+.road p{font-size:.92rem;line-height:1.4;color:var(--muted);margin-top:.3rem;}
+.dark .road .wk,.dark .road p{color:var(--muted-light);}
+.roadbars{display:flex;flex-direction:column;gap:.45rem;margin-top:.8rem;}
+.roadbars .bar{border-radius:10px;padding:.55rem 1rem;font-weight:700;font-size:1rem;line-height:1.35;}
 .roadbars .bar small{display:block;font-weight:500;font-size:.9rem;opacity:.95;}
 .roadbars .g{background:linear-gradient(90deg,var(--purple-deep),var(--purple));color:#fff;}
 .roadbars .e{background:var(--gold);color:#1a1200;}
 .roadbars .gate{border:1px dashed var(--purple);color:var(--purple-deep);background:transparent;}
+.roadbars .gate small{color:var(--muted);opacity:1;}
+.dark .roadbars .gate{color:var(--purple-light);}
+.dark .roadbars .gate small{color:var(--muted-light);}
 .phase .lede2{margin-top:.6rem;font-size:1rem;line-height:1.5;color:var(--muted);}
 .dark .phase .lede2{color:var(--muted-light);}
 .phase .eng{margin-top:.8rem;font-size:.95rem;line-height:1.5;color:var(--muted);padding-top:.7rem;border-top:1px solid var(--hairline);}
@@ -563,6 +564,7 @@ svg { display: block; max-width: 100%; }
 @media(max-width:700px){.slide{justify-content:flex-start;}.brand-header{flex-wrap:wrap;gap:.8rem;}.ptable{min-width:640px;}}
 @media(max-width:880px){.road{grid-template-columns:1fr 1fr;}}
 @media(max-width:560px){.road{grid-template-columns:1fr;}}
+@media(max-width:900px){.slide{height:auto;min-height:100dvh;max-height:100dvh;overflow-y:auto;-webkit-overflow-scrolling:touch;justify-content:flex-start;padding-top:3.2rem;padding-bottom:2rem;}.chrome-foot,.chrome-page{display:none;}}
 </style>
 </head>
 <body>
@@ -604,26 +606,26 @@ svg { display: block; max-width: 100%; }
 
       <div class="grid4 reveal d5" style="margin-top: 2.2rem;">
         <div class="card">
-          <div class="stat-num purple" style="font-size: clamp(1.2rem,2.1vw,1.6rem); line-height:1.2;">Every enquiry answered</div>
-          <div class="stat-label">Within minutes, on WhatsApp, your website and email</div>
+          <div class="stat-num purple" style="font-size: clamp(1.2rem,2.1vw,1.6rem); line-height:1.2;">Content that gets made</div>
+          <div class="stat-label">For events, courses and advisory services, reviewed by your team</div>
         </div>
         <div class="card">
-          <div class="stat-num" style="font-size: clamp(1.2rem,2.1vw,1.6rem); line-height:1.2;">Paperwork drafted</div>
-          <div class="stat-label">Agreements, invoices and reports, reviewed by your team</div>
+          <div class="stat-num" style="font-size: clamp(1.2rem,2.1vw,1.6rem); line-height:1.2;">Leads found and nurtured</div>
+          <div class="stat-label">From tools like Sales Navigator and Apollo into your CRM and follow-up</div>
         </div>
         <div class="card">
-          <div class="stat-num purple" style="font-size: clamp(1.2rem,2.1vw,1.6rem); line-height:1.2;">Nothing missed</div>
-          <div class="stat-label">Follow-ups, key dates and payments tracked</div>
+          <div class="stat-num purple" style="font-size: clamp(1.2rem,2.1vw,1.6rem); line-height:1.2;">Invitations sent</div>
+          <div class="stat-label">Invites, reminders and updates, sent automatically</div>
         </div>
         <div class="card">
-          <div class="stat-num" style="font-size: clamp(1.2rem,2.1vw,1.6rem); line-height:1.2;">One view</div>
-          <div class="stat-label">Both businesses on a single dashboard</div>
+          <div class="stat-num" style="font-size: clamp(1.2rem,2.1vw,1.6rem); line-height:1.2;">Researched writing</div>
+          <div class="stat-label">Articles and research papers with sources, checked by an expert</div>
         </div>
       </div>
     </div>
 
     <div class="chrome-foot"><span class="fdot"></span> Gracen × Credence Engage × Trance AI</div>
-    <div class="chrome-page" id="chrome-page-num">01 / 12</div>
+    <div class="chrome-page" id="chrome-page-num">01 / 14</div>
   </section>
 
 
@@ -653,7 +655,7 @@ svg { display: block; max-width: 100%; }
     </div>
 
     <div class="chrome-foot"><span class="fdot"></span> The Basics</div>
-    <div class="chrome-page">02 / 12</div>
+    <div class="chrome-page">02 / 14</div>
   </section>
 
 
@@ -661,24 +663,51 @@ svg { display: block; max-width: 100%; }
   <section class="slide dark">
     <div class="inner">
 
+      <div class="eyebrow reveal d1"><span class="dot"></span> Your Priorities</div>
+      <h2 class="title reveal d2" style="margin-top: .6rem; max-width: 28ch;">Your Priorities, and Where Each One Fits</h2>
+      <p class="lede reveal d3" style="margin-top: .8rem;">
+        These are the five priorities you shared. Each one has a place in the plan.
+      </p>
+
+      <div class="card prio reveal d4" style="margin-top: 1.2rem; padding: .5rem 1.3rem;">
+        <div class="ledger">
+          <div class="r"><div class="k">Content creation for content marketing for events, courses and advisory services<span class="s">AI drafts, your team approves, and it is published on a schedule.</span></div><div class="v"><span class="badge purple">Phase 1</span></div></div>
+          <div class="r"><div class="k">Automation and AI in marketing, lead generation, lead nurturing<span class="s">Fast replies and follow-up sequences that run by themselves.</span></div><div class="v"><span class="badge purple">Phase 2</span></div></div>
+          <div class="r"><div class="k">Sending invites and communications automation<span class="s">Invitations, reminders and updates sent automatically.</span></div><div class="v"><span class="badge purple">Phase 3</span></div></div>
+          <div class="r"><div class="k">Well-researched article writing and research writing<span class="s">Sourced, drafted with citations and checked by an expert.</span></div><div class="v"><span class="badge purple">Phase 1</span></div></div>
+          <div class="r"><div class="k">Lead generation through Sales Navigator, Apollo AI, RocketReach and similar tools<span class="s">Prospect lists from these tools, followed up through your CRM.</span></div><div class="v"><span class="badge purple">Phase 2</span></div></div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="chrome-foot"><span class="fdot"></span> Your Priorities</div>
+    <div class="chrome-page">03 / 14</div>
+  </section>
+
+
+  <!-- SLIDE 4 -->
+  <section class="slide light">
+    <div class="inner">
+
       <div class="eyebrow reveal d1"><span class="dot"></span> Build Once, Use Twice</div>
       <h2 class="title reveal d2" style="margin-top: .6rem; max-width: 26ch;">You Pay For the Core Systems One Time.</h2>
       <p class="lede reveal d3" style="margin-top: .8rem;">
-        We build the shared systems for Gracen Law first. Credence Engage then uses the same systems, set up for events. That is why the cost is shared between the two businesses instead of paid twice.
+        We build the shared systems once. Each business then uses them, set up for its own work. That is why the cost is shared between the two businesses instead of paid twice.
       </p>
 
       <div class="grid3 reveal d4" style="margin-top: 1.6rem; align-items: stretch;">
         <div class="card" style="border-color: rgba(160,4,223,.5);">
           <span class="badge purple">Built once, shared</span>
-          <ul class="checks" style="margin-top: .9rem;"><li><span>One contact and client record</span></li><li><span>Instant reply and booking assistant</span></li><li><span>Content and follow-up tools</span></li><li><span>Agreements, e-signature, invoicing and payments</span></li><li><span>Weekly reports and dashboard</span></li><li><span>Review and safety rules</span></li></ul>
+          <ul class="checks" style="margin-top: .9rem;"><li><span>One contact and client record</span></li><li><span>Content and research tools</span></li><li><span>Lead capture and follow-up</span></li><li><span>Reply, booking and invitation assistant</span></li><li><span>Agreements, invoicing and payments</span></li><li><span>Dashboard, reports and safety rules</span></li></ul>
         </div>
         <div class="card">
           <span class="badge purple">Set up for Gracen Law</span>
-          <ul class="checks" style="margin-top: .9rem;"><li><span>Clients, referrers and matters</span></li><li><span>Enquiries and consultation bookings</span></li><li><span>Lawyer-reviewed insights</span></li><li><span>Engagement letters and onboarding</span></li><li><span>Fees, retainers and key dates</span></li><li><span>Strict client confidentiality</span></li></ul>
+          <ul class="checks" style="margin-top: .9rem;"><li><span>Clients, referrers and matters</span></li><li><span>Enquiries and consultation bookings</span></li><li><span>Lawyer-reviewed advisory articles</span></li><li><span>Engagement letters and onboarding</span></li><li><span>Fees, retainers and key dates</span></li><li><span>Strict client confidentiality</span></li></ul>
         </div>
         <div class="card" style="border-color: rgba(245,158,11,.5);">
           <span class="badge gold">Set up for Credence Engage</span>
-          <ul class="checks" style="margin-top: .9rem;"><li><span>Delegates, sponsors and speakers</span></li><li><span>Event questions and sponsor enquiries</span></li><li><span>Event recaps and policy briefs</span></li><li><span>Registration, tickets and sponsor agreements</span></li><li><span>Event budgets and sponsor revenue</span></li><li><span>Consent for attendee data</span></li></ul>
+          <ul class="checks" style="margin-top: .9rem;"><li><span>Delegates, sponsors, speakers and course participants</span></li><li><span>Event, course and sponsor enquiries</span></li><li><span>Event promotion, recaps and policy briefs</span></li><li><span>Invitations, registration and tickets</span></li><li><span>Event budgets and sponsor revenue</span></li><li><span>Consent for attendee data</span></li></ul>
         </div>
       </div>
 
@@ -687,36 +716,7 @@ svg { display: block; max-width: 100%; }
     </div>
 
     <div class="chrome-foot"><span class="fdot"></span> Build Once, Use Twice</div>
-    <div class="chrome-page">03 / 12</div>
-  </section>
-
-
-  <!-- SLIDE 4 -->
-  <section class="slide light">
-    <div class="inner">
-
-      <div class="eyebrow reveal d1"><span class="dot"></span> The Plan</div>
-      <h2 class="title reveal d2" style="margin-top: .6rem; max-width: 24ch;">The Plan in Six Phases</h2>
-
-      <div class="road reveal d3" style="margin-top: 1.5rem;">
-        <div class="card"><span class="badge gold">Phase 0</span><div class="wk">Week 1</div><h3>Baseline and design</h3><p>Today's numbers and a clear plan.</p></div>
-        <div class="card"><span class="badge purple">Phase 1</span><div class="wk">Weeks 2–7</div><h3>Growth</h3><p>Enquiries, replies and follow-up.</p></div>
-        <div class="card"><span class="badge purple">Phase 2</span><div class="wk">Weeks 8–12</div><h3>Onboarding</h3><p>From enquiry to signed client.</p></div>
-        <div class="card"><span class="badge purple">Phase 3</span><div class="wk">Weeks 13–18</div><h3>Operations and billing</h3><p>Matters, invoices and payments.</p></div>
-        <div class="card"><span class="badge purple">Phase 4</span><div class="wk">Weeks 19–24</div><h3>Client care and retention</h3><p>Updates, renewals and advisory subscriptions.</p></div>
-        <div class="card"><span class="badge purple">Phase 5</span><div class="wk">Weeks 25–28</div><h3>Reporting</h3><p>Live numbers for both businesses.</p></div>
-      </div>
-
-      <div class="roadbars reveal d4">
-        <div class="bar g">Gracen Law<small>Phases 1 to 5, in this order. Phase 1 starts when Phase 0 is complete.</small></div>
-        <div class="bar e">Credence Engage<small>The same phases, run alongside Gracen Law on the same systems. Gracen Law work comes first.</small></div>
-        <div class="bar gate">Review after every phase<small style="color:var(--muted);">We show you the results. You decide whether to continue, pause or stop.</small></div>
-      </div>
-
-    </div>
-
-    <div class="chrome-foot"><span class="fdot"></span> The Plan</div>
-    <div class="chrome-page">04 / 12</div>
+    <div class="chrome-page">04 / 14</div>
   </section>
 
 
@@ -724,34 +724,32 @@ svg { display: block; max-width: 100%; }
   <section class="slide dark">
     <div class="inner">
 
-      <div class="eyebrow reveal d1"><span class="dot"></span> Phases 0 and 1</div>
-      <h2 class="title reveal d2" style="margin-top: .6rem; max-width: 28ch;">Where We Begin: Baseline and Growth</h2>
+      <div class="eyebrow reveal d1"><span class="dot"></span> The Plan</div>
+      <h2 class="title reveal d2" style="margin-top: .6rem; max-width: 24ch;">The Plan in Eight Phases</h2>
+      <p class="lede reveal d3" style="margin-top: .7rem;">
+        Phases 1 to 3 cover the priorities you shared. Phases 4 to 7 add AI to the day-to-day running of both businesses.
+      </p>
 
-      <div class="split" style="margin-top: 1.4rem; align-items: stretch; grid-template-columns: .85fr 1.15fr;">
-        
-        <div class="card phase reveal">
-          <span class="badge gold">Phase 0 · Week 1</span>
-          <h3 style="margin-top:.6rem; font-size:1.25rem; line-height:1.2;">Baseline and design</h3>
-          <p class="lede2">Before we build anything, we record where things stand today.</p>
-          <ul class="checks" style="margin-top: .8rem;"><li><span>Record today's numbers: enquiries each month, reply time, clients won and unpaid fees.</span></li><li><span>Review your legal software and its CRM.</span></li><li><span>Map how enquiries and clients move through both businesses.</span></li><li><span>Agree who you most want to reach, and what the AI may and may not see.</span></li></ul>
-          <div class="impact"><span class="k">You get</span><span class="v" style="font-size:clamp(1rem,1.5vw,1.2rem);">A baseline report and a plan for Phase 1.</span></div>
-          <p class="eng"><b>Credence Engage:</b> We map how registrations, sponsors and attendee data work today.</p>
-        </div>
-        
-        <div class="card phase reveal">
-          <span class="badge purple">Phase 1 · Weeks 2–7</span>
-          <h3 style="margin-top:.6rem; font-size:1.25rem; line-height:1.2;">Growth</h3>
-          <p class="lede2">Attract and Nurture: the right people find you, and no one waits for a reply.</p>
-          <ul class="checks" style="margin-top: .8rem;"><li><span>Switch on your CRM so every enquiry lands in one place.</span></li><li><span>An AI assistant replies in minutes on WhatsApp, your website and email, asks the right questions and books the consultation. It never gives legal advice.</span></li><li><span>Your lawyers' expertise becomes posts and articles. A lawyer approves each one before it goes live.</span></li><li><span>Referral tracking shows who sends you clients, so you can thank them on time.</span></li></ul>
-          <div class="impact"><span class="k">You get</span><span class="v" style="font-size:clamp(1rem,1.5vw,1.2rem);">More enquiries answered quickly, with every lead recorded.</span></div>
-          <p class="eng"><b>Credence Engage:</b> The same assistant answers delegate and sponsor questions, and each event feeds new content.</p>
-        </div>
+      <div class="road reveal d4" style="margin-top: 1.1rem;">
+        <div class="card"><span class="badge gold">Phase 0</span><div class="wk">Week 1</div><h3>Baseline and design</h3><p>Today's numbers and a clear plan.</p></div>
+        <div class="card"><span class="badge purple">Phase 1</span><div class="wk">Weeks 2–7</div><h3>Content and research</h3><p>Content for events, courses and advisory services.</p></div>
+        <div class="card"><span class="badge purple">Phase 2</span><div class="wk">Weeks 8–12</div><h3>Marketing and lead generation</h3><p>Finding, nurturing and following up leads.</p></div>
+        <div class="card"><span class="badge purple">Phase 3</span><div class="wk">Weeks 13–15</div><h3>Invitations and communications</h3><p>Invites, reminders and updates.</p></div>
+        <div class="card"><span class="badge purple">Phase 4</span><div class="wk">Weeks 16–19</div><h3>Onboarding</h3><p>From enquiry to signed client.</p></div>
+        <div class="card"><span class="badge purple">Phase 5</span><div class="wk">Weeks 20–25</div><h3>Operations and billing</h3><p>Matters, invoices and payments.</p></div>
+        <div class="card"><span class="badge purple">Phase 6</span><div class="wk">Weeks 26–31</div><h3>Client care and retention</h3><p>Updates, renewals and advisory subscriptions.</p></div>
+        <div class="card"><span class="badge purple">Phase 7</span><div class="wk">Weeks 32–35</div><h3>Reporting</h3><p>Live numbers for both businesses.</p></div>
+      </div>
+
+      <div class="roadbars reveal d5">
+        <div class="bar g">Gracen Law and Credence Engage<small>Every phase runs for both businesses, on the same systems. Phase 1 starts when Phase 0 is complete.</small></div>
+        <div class="bar gate">Review after every phase<small>We show you the results. You decide whether to continue, pause or stop.</small></div>
       </div>
 
     </div>
 
-    <div class="chrome-foot"><span class="fdot"></span> Phases 0 and 1</div>
-    <div class="chrome-page">05 / 12</div>
+    <div class="chrome-foot"><span class="fdot"></span> The Plan</div>
+    <div class="chrome-page">05 / 14</div>
   </section>
 
 
@@ -759,13 +757,83 @@ svg { display: block; max-width: 100%; }
   <section class="slide light">
     <div class="inner">
 
+      <div class="eyebrow reveal d1"><span class="dot"></span> Phases 0 and 1</div>
+      <h2 class="title reveal d2" style="margin-top: .6rem; max-width: 28ch;">Where We Begin: Baseline and Content</h2>
+
+      <div class="split" style="margin-top: 1.4rem; align-items: stretch; grid-template-columns: .85fr 1.15fr;">
+        
+        <div class="card phase reveal">
+          <span class="badge gold">Phase 0 · Week 1</span>
+          <h3 style="margin-top:.6rem; font-size:1.25rem; line-height:1.2;">Baseline and design</h3>
+          <p class="lede2">Before we build anything, we record where things stand today.</p>
+          <ul class="checks" style="margin-top: .8rem;"><li><span>Record today's numbers: enquiries each month, reply time, clients won and unpaid fees.</span></li><li><span>Review your legal software, its CRM and any lead tools you already use.</span></li><li><span>Map how enquiries and clients move through both businesses.</span></li><li><span>Agree who you most want to reach, and what the AI may and may not see.</span></li></ul>
+          <div class="impact"><span class="k">You get</span><span class="v" style="font-size:clamp(1rem,1.5vw,1.2rem);">A baseline report and a plan for Phase 1.</span></div>
+          <p class="eng"><b>Credence Engage:</b> We map how registrations, sponsors and attendee data work today.</p>
+        </div>
+        
+        <div class="card phase reveal">
+          <span class="badge purple">Phase 1 · Weeks 2–7</span>
+          <h3 style="margin-top:.6rem; font-size:1.25rem; line-height:1.2;">Content and research</h3>
+          <p class="lede2">Attract: steady, well-researched content for events, courses and advisory services.</p>
+          <ul class="checks" style="margin-top: .8rem;"><li><span>A monthly content plan for your events, courses and advisory services, agreed with you.</span></li><li><span>AI drafts posts, event promotions, course descriptions and advisory pieces from your expertise and past material. Your team reviews everything before it goes live.</span></li><li><span>Well-researched articles and research papers: AI gathers and summarises the sources, drafts with citations, and an expert checks every claim.</span></li><li><span>A content library, so past events, courses and articles can be reused.</span></li><li><span>Scheduling to LinkedIn, your websites and email.</span></li></ul>
+          <div class="impact"><span class="k">You get</span><span class="v" style="font-size:clamp(1rem,1.5vw,1.2rem);">A steady flow of reviewed content, with the first month delivered at launch.</span></div>
+          <p class="eng"><b>In each business:</b> Credence Engage gets event promotion, policy briefs and course content. Gracen Law gets lawyer-reviewed advisory articles.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="chrome-foot"><span class="fdot"></span> Phases 0 and 1</div>
+    <div class="chrome-page">06 / 14</div>
+  </section>
+
+
+  <!-- SLIDE 7 -->
+  <section class="slide dark">
+    <div class="inner">
+
       <div class="eyebrow reveal d1"><span class="dot"></span> Phases 2 and 3</div>
+      <h2 class="title reveal d2" style="margin-top: .6rem; max-width: 24ch;">Marketing and Communications</h2>
+
+      <div class="split" style="margin-top: 1.4rem; align-items: stretch; grid-template-columns: 1.1fr .9fr;">
+        
+        <div class="card phase reveal">
+          <span class="badge purple">Phase 2 · Weeks 8–12</span>
+          <h3 style="margin-top:.6rem; font-size:1.25rem; line-height:1.2;">Marketing and lead generation</h3>
+          <p class="lede2">Attract and Nurture: the right people are found, contacted properly and followed up.</p>
+          <ul class="checks" style="margin-top: .8rem;"><li><span>Switch on your CRM so every lead and enquiry lands in one place.</span></li><li><span>Prospect lists built in Sales Navigator, Apollo AI, RocketReach or similar tools, brought into your CRM and followed up through it.</span></li><li><span>An AI assistant replies in minutes on WhatsApp, your website and email, asks the right questions and books the call. It never gives legal advice.</span></li><li><span>Follow-up sequences that keep warm leads warm, and referral tracking so you can thank people who send you clients.</span></li></ul>
+          <div class="impact"><span class="k">You get</span><span class="v" style="font-size:clamp(1rem,1.5vw,1.2rem);">Leads found, recorded and followed up without manual chasing.</span></div>
+          <p class="eng"><b>In each business:</b> Credence Engage reaches sponsors, delegates and course participants. Gracen Law handles consultation enquiries.</p>
+        </div>
+        
+        <div class="card phase reveal">
+          <span class="badge purple">Phase 3 · Weeks 13–15</span>
+          <h3 style="margin-top:.6rem; font-size:1.25rem; line-height:1.2;">Invitations and communications</h3>
+          <p class="lede2">Nurture: the right message reaches the right people at the right time.</p>
+          <ul class="checks" style="margin-top: .8rem;"><li><span>Invitations to events, courses and consultations, sent from your lists and personalised.</span></li><li><span>Confirmations, reminders and thank-you messages sent automatically by email and WhatsApp.</span></li><li><span>Speaker, sponsor and partner messages sent on a schedule.</span></li><li><span>Replies tracked, so you can see who has accepted or declined.</span></li></ul>
+          <div class="impact"><span class="k">You get</span><span class="v" style="font-size:clamp(1rem,1.5vw,1.2rem);">Invitations and updates sent on time, without anyone sending them by hand.</span></div>
+          <p class="eng"><b>Gracen Law:</b> Briefing invitations, client updates and advisory notices.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="chrome-foot"><span class="fdot"></span> Phases 2 and 3</div>
+    <div class="chrome-page">07 / 14</div>
+  </section>
+
+
+  <!-- SLIDE 8 -->
+  <section class="slide light">
+    <div class="inner">
+
+      <div class="eyebrow reveal d1"><span class="dot"></span> Phases 4 and 5</div>
       <h2 class="title reveal d2" style="margin-top: .6rem; max-width: 24ch;">From Enquiry to Payment</h2>
 
       <div class="split" style="margin-top: 1.4rem; align-items: stretch; grid-template-columns: 1fr 1fr;">
         
         <div class="card phase reveal">
-          <span class="badge purple">Phase 2 · Weeks 8–12</span>
+          <span class="badge purple">Phase 4 · Weeks 16–19</span>
           <h3 style="margin-top:.6rem; font-size:1.25rem; line-height:1.2;">Onboarding</h3>
           <p class="lede2">Convert: a shorter path from first enquiry to signed engagement.</p>
           <ul class="checks" style="margin-top: .8rem;"><li><span>Proposals and engagement letters drafted from your templates in minutes, for a lawyer to review.</span></li><li><span>E-signature and an onboarding checklist for every new client.</span></li><li><span>Document requests and reminders sent automatically.</span></li><li><span>Conflict-check details prepared for a lawyer to confirm.</span></li></ul>
@@ -774,7 +842,7 @@ svg { display: block; max-width: 100%; }
         </div>
         
         <div class="card phase reveal">
-          <span class="badge purple">Phase 3 · Weeks 13–18</span>
+          <span class="badge purple">Phase 5 · Weeks 20–25</span>
           <h3 style="margin-top:.6rem; font-size:1.25rem; line-height:1.2;">Operations and billing</h3>
           <p class="lede2">Day-to-day work runs with fewer manual steps.</p>
           <ul class="checks" style="margin-top: .8rem;"><li><span>Every matter, filing and renewal date tracked, with alerts before it arrives.</span></li><li><span>Time entries and invoices prepared automatically, with payment reminders and M-Pesa links.</span></li><li><span>A drafting assistant for repeat documents, always reviewed by a lawyer.</span></li><li><span>Unpaid fees tracked and followed up on time.</span></li></ul>
@@ -785,22 +853,22 @@ svg { display: block; max-width: 100%; }
 
     </div>
 
-    <div class="chrome-foot"><span class="fdot"></span> Phases 2 and 3</div>
-    <div class="chrome-page">06 / 12</div>
+    <div class="chrome-foot"><span class="fdot"></span> Phases 4 and 5</div>
+    <div class="chrome-page">08 / 14</div>
   </section>
 
 
-  <!-- SLIDE 7 -->
+  <!-- SLIDE 9 -->
   <section class="slide dark">
     <div class="inner">
 
-      <div class="eyebrow reveal d1"><span class="dot"></span> Phases 4 and 5</div>
+      <div class="eyebrow reveal d1"><span class="dot"></span> Phases 6 and 7</div>
       <h2 class="title reveal d2" style="margin-top: .6rem; max-width: 24ch;">Client Care and Reporting</h2>
 
       <div class="split" style="margin-top: 1.4rem; align-items: stretch; grid-template-columns: 1fr 1fr;">
         
         <div class="card phase reveal">
-          <span class="badge purple">Phase 4 · Weeks 19–24</span>
+          <span class="badge purple">Phase 6 · Weeks 26–31</span>
           <h3 style="margin-top:.6rem; font-size:1.25rem; line-height:1.2;">Client care and retention</h3>
           <p class="lede2">Nurture and Retain: more people decide to work with you, and more stay.</p>
           <ul class="checks" style="margin-top: .8rem;"><li><span>Follow-up messages for people who enquired but have not decided yet.</span></li><li><span>Packaged advisory services, such as a legal health check, offered through guided online forms that prepare a draft for a lawyer to review.</span></li><li><span>Client updates sent automatically at key points.</span></li><li><span>Advisory subscription and renewal tracking, with compliance calendars for ongoing clients.</span></li></ul>
@@ -809,7 +877,7 @@ svg { display: block; max-width: 100%; }
         </div>
         
         <div class="card phase reveal">
-          <span class="badge purple">Phase 5 · Weeks 25–28</span>
+          <span class="badge purple">Phase 7 · Weeks 32–35</span>
           <h3 style="margin-top:.6rem; font-size:1.25rem; line-height:1.2;">Reporting</h3>
           <p class="lede2">One view of both businesses, built from what the earlier phases collect.</p>
           <ul class="checks" style="margin-top: .8rem;"><li><span>A dashboard: enquiries, clients won, cash collected, open matters and event numbers.</span></li><li><span>A weekly summary sent to you automatically.</span></li><li><span>A shared contact record for people who have agreed to be in both businesses.</span></li><li><span>A review of what worked and a plan for what comes next.</span></li></ul>
@@ -820,12 +888,12 @@ svg { display: block; max-width: 100%; }
 
     </div>
 
-    <div class="chrome-foot"><span class="fdot"></span> Phases 4 and 5</div>
-    <div class="chrome-page">07 / 12</div>
+    <div class="chrome-foot"><span class="fdot"></span> Phases 6 and 7</div>
+    <div class="chrome-page">09 / 14</div>
   </section>
 
 
-  <!-- SLIDE 8 -->
+  <!-- SLIDE 10 -->
   <section class="slide light">
     <div class="inner">
 
@@ -833,22 +901,22 @@ svg { display: block; max-width: 100%; }
       <h2 class="title reveal d2" style="margin-top: .6rem; max-width: 26ch;">How We Protect Client Information</h2>
 
       <div class="grid3" style="margin-top: 1.6rem;">
-        <div class="card mini reveal d3"><span class="badge purple">Control</span><h3>Lawyers stay in charge</h3><p>AI drafts and sorts. A lawyer approves anything that reaches a client or goes public.</p></div>
+        <div class="card mini reveal d3"><span class="badge purple">Control</span><h3>Your team stays in charge</h3><p>AI drafts and sorts. A person approves anything that reaches a client or goes public.</p></div>
         <div class="card mini reveal d4"><span class="badge gold">Advice</span><h3>No legal advice from AI</h3><p>The assistant gathers details and books consultations. It does not advise on legal questions.</p></div>
-        <div class="card mini reveal d5"><span class="badge purple">Data</span><h3>Separate data for each business</h3><p>Gracen Law and Credence Engage use separate workspaces. Nothing is shared without consent.</p></div>
-        <div class="card mini reveal d6"><span class="badge gold">Law</span><h3>Data Protection Act</h3><p>We design the systems around Kenya's Data Protection Act. You decide what the AI can see, and access is logged.</p></div>
-        <div class="card mini reveal d7"><span class="badge purple">Marketing</span><h3>Advocate advertising rules</h3><p>Gracen's compliance counsel confirms what is allowed before any content goes live.</p></div>
-        <div class="card mini reveal d8"><span class="badge gold">Ownership</span><h3>You keep your data</h3><p>Accounts and data stay in your name. You can remove our access at any time.</p></div>
+        <div class="card mini reveal d5"><span class="badge purple">Data</span><h3>Separate data for each business</h3><p>Gracen Law and Credence Engage use separate workspaces. Nothing is shared without consent, and accounts stay in your name.</p></div>
+        <div class="card mini reveal d6"><span class="badge gold">Law</span><h3>Data Protection Act</h3><p>We design the systems around Kenya's Data Protection Act, including outreach lists. You decide what the AI can see, and access is logged.</p></div>
+        <div class="card mini reveal d7"><span class="badge purple">Marketing</span><h3>Outreach and advertising rules</h3><p>Lead tools are used within each provider's terms. Gracen's compliance counsel confirms advocate advertising rules before any content goes live.</p></div>
+        <div class="card mini reveal d8"><span class="badge gold">Accuracy</span><h3>Researched writing is checked</h3><p>Every article cites its sources, and an expert checks the claims before it is published.</p></div>
       </div>
 
     </div>
 
     <div class="chrome-foot"><span class="fdot"></span> Safe and Confidential</div>
-    <div class="chrome-page">08 / 12</div>
+    <div class="chrome-page">10 / 14</div>
   </section>
 
 
-  <!-- SLIDE 9 -->
+  <!-- SLIDE 11 -->
   <section class="slide dark">
     <div class="inner">
 
@@ -858,32 +926,34 @@ svg { display: block; max-width: 100%; }
         Pick the phases you want and pay only for those. Each phase has one fixed fee, with no monthly charges from us.
       </p>
 
-      <div class="card ptable-wrap reveal d4" style="margin-top: 1.2rem; padding: .6rem 1rem;">
+      <div class="card ptable-wrap reveal d4" style="margin-top: 1.1rem; padding: .5rem 1rem;">
         <table class="ptable">
           <thead>
             <tr><th>Phase</th><th class="g sep">Gracen Law</th><th class="e">Credence Engage</th><th class="sep">Both businesses</th></tr>
           </thead>
           <tbody>
             <tr><td class="ph">0 · Baseline and design<small>Week 1</small></td><td class="n sep">KES 6,000</td><td class="n">KES 6,000</td><td class="n sep">KES 12,000</td></tr>
-            <tr><td class="ph">1 · Growth<small>Weeks 2–7</small></td><td class="n sep">KES 14,000</td><td class="n">KES 14,000</td><td class="n sep">KES 28,000</td></tr>
-            <tr><td class="ph">2 · Onboarding<small>Weeks 8–12</small></td><td class="n sep">KES 6,000</td><td class="n">KES 6,000</td><td class="n sep">KES 12,000</td></tr>
-            <tr><td class="ph">3 · Operations and billing<small>Weeks 13–18</small></td><td class="n sep">KES 15,000</td><td class="n">KES 15,000</td><td class="n sep">KES 30,000</td></tr>
-            <tr><td class="ph">4 · Client care and retention<small>Weeks 19–24</small></td><td class="n sep">KES 15,000</td><td class="n">KES 15,000</td><td class="n sep">KES 30,000</td></tr>
-            <tr><td class="ph">5 · Reporting<small>Weeks 25–28</small></td><td class="n sep">KES 5,000</td><td class="n">KES 5,000</td><td class="n sep">KES 10,000</td></tr>
+            <tr><td class="ph">1 · Content and research<small>Weeks 2–7</small></td><td class="n sep">KES 20,000</td><td class="n">KES 20,000</td><td class="n sep">KES 40,000</td></tr>
+            <tr><td class="ph">2 · Marketing and lead generation<small>Weeks 8–12</small></td><td class="n sep">KES 14,000</td><td class="n">KES 14,000</td><td class="n sep">KES 28,000</td></tr>
+            <tr><td class="ph">3 · Invitations and communications<small>Weeks 13–15</small></td><td class="n sep">KES 8,000</td><td class="n">KES 8,000</td><td class="n sep">KES 16,000</td></tr>
+            <tr><td class="ph">4 · Onboarding<small>Weeks 16–19</small></td><td class="n sep">KES 6,000</td><td class="n">KES 6,000</td><td class="n sep">KES 12,000</td></tr>
+            <tr><td class="ph">5 · Operations and billing<small>Weeks 20–25</small></td><td class="n sep">KES 15,000</td><td class="n">KES 15,000</td><td class="n sep">KES 30,000</td></tr>
+            <tr><td class="ph">6 · Client care and retention<small>Weeks 26–31</small></td><td class="n sep">KES 15,000</td><td class="n">KES 15,000</td><td class="n sep">KES 30,000</td></tr>
+            <tr><td class="ph">7 · Reporting<small>Weeks 32–35</small></td><td class="n sep">KES 5,000</td><td class="n">KES 5,000</td><td class="n sep">KES 10,000</td></tr>
           </tbody>
         </table>
       </div>
 
-      <p class="note reveal d5" style="margin-top: .9rem;"><b>Each fee</b> covers designing, building, testing and launching, plus 30 days of support after launch. <b>The fee is split evenly</b> between the two businesses because the core systems are built once. <b>Prices are fixed per phase.</b> After the 30 days, any change or addition is quoted separately. The tools that run the systems are listed on the next slide.</p>
+      <p class="note reveal d5" style="margin-top: .8rem;"><b>Each fee</b> covers designing, building, testing and launching, plus 30 days of support after launch. Phase 1 also includes the first month of content. <b>The fee is split evenly</b> between the two businesses because the core systems are built once. <b>Prices are fixed per phase.</b> After the 30 days, any change, addition or further content is quoted separately.</p>
 
     </div>
 
     <div class="chrome-foot"><span class="fdot"></span> What We Charge</div>
-    <div class="chrome-page">09 / 12</div>
+    <div class="chrome-page">11 / 14</div>
   </section>
 
 
-  <!-- SLIDE 10 -->
+  <!-- SLIDE 12 -->
   <section class="slide light">
     <div class="inner">
 
@@ -907,9 +977,9 @@ svg { display: block; max-width: 100%; }
           <span class="badge gold">2 · Paid to the tool providers</span>
           <div class="ledger" style="margin-top:.6rem;">
             <div class="r"><div class="k">WhatsApp messages<span class="s">Paid to Meta. Depends on how many messages are sent.</span></div><div class="v">KES 3,000–10,000<small>per month · estimate</small></div></div>
-            <div class="r"><div class="k">AI usage (LLMs)<span class="s">Paid to the AI provider, in your name. Depends on how many enquiries and documents are handled.</span></div><div class="v">KES 2,000–6,000<small>per month · estimate</small></div></div>
+            <div class="r"><div class="k">AI usage (LLMs)<span class="s">Paid to the AI provider, in your name. Depends on how much content and how many enquiries are handled.</span></div><div class="v">KES 2,000–6,000<small>per month · estimate</small></div></div>
             <div class="r"><div class="k">Hosting and automation tools<span class="s">Paid to the providers, in your name. Runs the workflows and e-signature.</span></div><div class="v">KES 2,000–5,000<small>per month · estimate</small></div></div>
-            <div class="r"><div class="k">Ad budget (optional)<span class="s">Paid to Meta. You set the amount.</span></div><div class="v">Your choice</div></div>
+            <div class="r"><div class="k">Lead tools<span class="s">Your Sales Navigator, Apollo AI and RocketReach accounts, paid to each provider.</span></div><div class="v">Your existing plans</div></div>
           </div>
         </div>
       </div>
@@ -921,11 +991,11 @@ svg { display: block; max-width: 100%; }
     </div>
 
     <div class="chrome-foot"><span class="fdot"></span> Other Costs and Billing</div>
-    <div class="chrome-page">10 / 12</div>
+    <div class="chrome-page">12 / 14</div>
   </section>
 
 
-  <!-- SLIDE 11 -->
+  <!-- SLIDE 13 -->
   <section class="slide dark">
     <div class="inner">
 
@@ -933,10 +1003,10 @@ svg { display: block; max-width: 100%; }
       <h2 class="title reveal d2" style="margin-top: .6rem; max-width: 24ch;">Six Things We Need to Start</h2>
 
       <div class="grid3" style="margin-top: 1.6rem;">
-        <div class="card mini reveal d3"><span class="badge purple">Access</span><h3>Your legal software</h3><p>An admin login for the legal software and its CRM, so we can see what it can do and connect it.</p></div>
+        <div class="card mini reveal d3"><span class="badge purple">Access</span><h3>Your software and lead tools</h3><p>Admin logins for your legal software and CRM, and for Sales Navigator, Apollo AI and RocketReach, so we can see what they do and connect them.</p></div>
         <div class="card mini reveal d4"><span class="badge gold">Numbers</span><h3>Today's figures</h3><p>Enquiries per month, clients won, average client value and unpaid fees. These form the baseline.</p></div>
         <div class="card mini reveal d5"><span class="badge purple">People</span><h3>One owner for each business</h3><p>A decision-maker, and one person in each business who will use the systems every day.</p></div>
-        <div class="card mini reveal d6"><span class="badge gold">Information</span><h3>Templates and FAQs</h3><p>Engagement letters, service descriptions, fee structures and the questions clients ask most.</p></div>
+        <div class="card mini reveal d6"><span class="badge gold">Information</span><h3>Templates, past content and FAQs</h3><p>Engagement letters, service descriptions, past articles, event and course material, and the questions people ask most.</p></div>
         <div class="card mini reveal d7"><span class="badge purple">Channels</span><h3>Your WhatsApp, website and event platform</h3><p>Admin access to the channels where enquiries and registrations arrive.</p></div>
         <div class="card mini reveal d8"><span class="badge gold">Rules</span><h3>Compliance guidance</h3><p>What Gracen's compliance counsel allows for marketing and data, and what the AI may see.</p></div>
       </div>
@@ -946,11 +1016,11 @@ svg { display: block; max-width: 100%; }
     </div>
 
     <div class="chrome-foot"><span class="fdot"></span> What We Need</div>
-    <div class="chrome-page">11 / 12</div>
+    <div class="chrome-page">13 / 14</div>
   </section>
 
 
-  <!-- SLIDE 12 -->
+  <!-- SLIDE 14 -->
   <section class="slide warm">
     <div class="inner">
 
@@ -958,7 +1028,7 @@ svg { display: block; max-width: 100%; }
       <h2 class="title reveal d2" style="margin-top: .6rem; max-width: 24ch;">How We Begin</h2>
 
       <div class="grid4" style="margin-top: 1.6rem;">
-        <div class="card mini reveal d3"><span class="badge purple">Step 1</span><h3>Choose</h3><p>Tell us which phases and which business you want to begin with. We suggest Gracen Law, Phases 0 and 1.</p></div>
+        <div class="card mini reveal d3"><span class="badge purple">Step 1</span><h3>Choose</h3><p>Tell us which phases and which business you want to begin with. We suggest starting with Phases 0 and 1.</p></div>
         <div class="card mini reveal d4"><span class="badge purple">Step 2</span><h3>Phase 0</h3><p>We spend one week on the baseline and design. Phase 0 is paid before we start.</p></div>
         <div class="card mini reveal d5"><span class="badge purple">Step 3</span><h3>Review</h3><p>We present the baseline and a fixed price for Phase 1, and you decide whether to go ahead.</p></div>
         <div class="card mini reveal d6" style="border-color: var(--purple);"><span class="badge gold">Step 4</span><h3>Build and review</h3><p>We build Phase 1. After it runs, we show the results and you choose what happens next.</p></div>
@@ -977,7 +1047,7 @@ svg { display: block; max-width: 100%; }
     </div>
 
     <div class="chrome-foot"><span class="fdot"></span> Gracen × Credence Engage × Trance AI</div>
-    <div class="chrome-page">12 / 12</div>
+    <div class="chrome-page">14 / 14</div>
   </section>
 
 </main>
@@ -1084,7 +1154,7 @@ const __deckInit = () => {
     touchStartY = e.touches[0].clientY;
   }, { passive: true });
 
-  window.addEventListener('touchend', (e) => { if (window.matchMedia('(max-width: 700px)').matches) return;
+  window.addEventListener('touchend', (e) => { if (window.matchMedia('(max-width: 900px)').matches) return;
     const touchEndY = e.changedTouches[0].clientY;
     const diffY = touchStartY - touchEndY;
     if (Math.abs(diffY) > 50) {
